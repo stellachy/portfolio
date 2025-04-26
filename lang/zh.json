@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "about": "關於我",
+    "services": "服務項目",
+    "portfolio": "作品集",
+    "testimonials": "推薦評語",
+    "contact": "聯絡我"
+  },
+  "about": {
+    "title": "哈囉！我是 Stella",
+    "description": "我喜歡做可愛的像素風網站！"
+  },
+  "services": {
+    "title": "UI/UX設計",
+    "description": "可愛風格的網頁設計、UI/UX設計等等！",
+    "title2": "前端實作",
+    "description2": "實作前端網站、使用者友善體驗！",
+    "title3": "後端串接",
+    "description3": "撰寫API、完整CRUD！"
+  }
+}

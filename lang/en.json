@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact ME"
+  },
+  "about": {
+    "title": "Hello! I'm Stella",
+    "description": "I love creating cute, pixel-style websites!"
+  },
+  "services": {
+    "title": "UI/UX Design",
+    "description": "可愛風格的網頁設計、UI/UX設計等等！",
+    "title2": "Front-end",
+    "description2": "實作前端網站、使用者友善體驗！",
+    "title3": "Back-end",
+    "description3": "串接前後端、完整CRUD！"
+  }
+}

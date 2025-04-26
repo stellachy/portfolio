@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stella's Portfolio</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/profile_pic.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="border-container">
+
+    <header>
+      <nav class="navbar">
+        <div class="nav-head">
+          <img src="assets/profile_pic.png" alt="logo">
+          <div class="logo">Stella</div>
+          <ul class="nav-links">
+            <li><a href="#about" data-i18n="nav.about">🙋🏻‍♀️ About</a></li>
+            <li><a href="#services" data-i18n="nav.services">🍗 Services</a></li>
+            <li><a href="#portfolio" data-i18n="nav.portfolio">💼 Portfolio</a></li>
+            <li><a href="#testimonials" data-i18n="nav.testimonials">🗣️ Testimonials</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">☎️ Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="nav-tail">
+          <button id="lang-toggle" class="lang-btn">中文</button>
+          <div class="toggle-switch">
+            <input type="checkbox" id="theme-toggle">
+            <label for="theme-toggle" class="toggle-label">
+              <span class="icon sun material-icons">light_mode</span>
+              <span class="icon moon material-icons">dark_mode</span>
+              <span class="toggle-bg"></span>
+            </label>
+          </div>
+          <div class="close-btn">－</div>
+        </div>
+      </nav>
+    </header>
+  
+    <main>
+      <section id="hero">
+        <img src="assets/images/cat.png" alt="cAIT Cat" class="hero-img">
+        <h1>Hello, I'm [Your Name]</h1>
+        <button class="cta-button">Let's Connect!</button>
+      </section>
+  
+      <section id="about">
+        <h2 data-i18n="nav.about">About Me</h2>
+        <h3 data-i18n="about.title">Hello! I'm Stella</h3>
+        <p data-i18n="about.description">I love creating cute, pixel-style websites!</p>
+      </section>
+  
+      <section id="services">
+        <h2 data-i18n="nav.services">Services / Products</h2>
+        <div class="services-grid">
+          <div class="service-item" >
+            <h3 data-i18n="services.title">UI/UX Design</h3>
+            <p data-i18n="services.description">123</p>
+          </div>
+          <div class="service-item">
+            <h3 data-i18n="services.title2">Front-end</h3>
+            <p data-i18n="services.description2">456</p>
+          </div>
+          <div class="service-item">
+            <h3 data-i18n="services.title3">Back-end</h3>
+            <p data-i18n="services.description3">789</p>
+          </div>
+        </div>
+      </section>
+  
+      <section id="portfolio">
+        <h2 data-i18n="nav.portfolio">Portfolio</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">Project 1</div>
+          <div class="portfolio-item">Project 2</div>
+          <div class="portfolio-item">Project 3</div>
+        </div>
+      </section>
+  
+      <section id="testimonials">
+        <h2 data-i18n="nav.testimonials">Testimonials</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial">"Amazing work!"</div>
+          <div class="testimonial">"Very professional!"</div>
+          <div class="testimonial">"Highly recommend!"</div>
+        </div>
+      </section>
+  
+      <section id="contact">
+        <h2 data-i18n="nav.contact">Contact Me</h2>
+        <form id="contact-form">
+          <input type="email" name="user_mail" placeholder="Your Email" required>
+          <input type="text" name="user_name" placeholder="Your Name" required>
+          <input type="tel" name="user_phone" placeholder="Phone Number">
+          <input type="text" name="subject" placeholder="Subject">
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+  
+    <footer>
+      <div class="social-links">
+        <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+        <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="assets/icons/email.svg" alt="Email"></a>
+      </div>
+      <p>Made with &#9825; by Stella</p>
+    </footer>
+
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
