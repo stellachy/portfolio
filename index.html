@@ -21,8 +21,7 @@
           <ul class="nav-links">
             <li><a href="#about" data-i18n="nav.about">🙋🏻‍♀️ About</a></li>
             <li><a href="#services" data-i18n="nav.services">🍗 Services</a></li>
-            <li><a href="#portfolio" data-i18n="nav.portfolio">💼 Portfolio</a></li>
-            <li><a href="#testimonials" data-i18n="nav.testimonials">🗣️ Testimonials</a></li>
+            <li><a href="#skills" data-i18n="nav.skills">🔧 Skills</a></li>
             <li><a href="#contact" data-i18n="nav.contact">☎️ Contact</a></li>
           </ul>
         </div>
@@ -43,16 +42,17 @@
     </header>
   
     <main>
-      <section id="hero">
-        <img src="assets/images/cat.png" alt="cAIT Cat" class="hero-img">
-        <h1>Hello, I'm [Your Name]</h1>
-        <button class="cta-button">Let's Connect!</button>
-      </section>
-  
+
       <section id="about">
-        <h2 data-i18n="nav.about">About Me</h2>
-        <h3 data-i18n="about.title">Hello! I'm Stella</h3>
-        <p data-i18n="about.description">I love creating cute, pixel-style websites!</p>
+        <div class="about-top">
+          <img src="assets/profile_pic.png" alt="avatar" class="avatar">
+          <div>
+            <h1 data-i18n="about.title">Hi, I'm Stella!</h1>
+            <h3 data-i18n="about.description">I love creating cute, pixel-style websites!</h3>
+          </div>
+        </div>
+        <button class="cta-button"><a href="#contact" class="cta-a">Contact ME</a></button>
+        
       </section>
   
       <section id="services">
@@ -73,21 +73,12 @@
         </div>
       </section>
   
-      <section id="portfolio">
-        <h2 data-i18n="nav.portfolio">Portfolio</h2>
+      <section id="skills">
+        <h2 data-i18n="nav.skills">Skills</h2>
         <div class="portfolio-grid">
           <div class="portfolio-item">Project 1</div>
           <div class="portfolio-item">Project 2</div>
           <div class="portfolio-item">Project 3</div>
-        </div>
-      </section>
-  
-      <section id="testimonials">
-        <h2 data-i18n="nav.testimonials">Testimonials</h2>
-        <div class="testimonial-slider">
-          <div class="testimonial">"Amazing work!"</div>
-          <div class="testimonial">"Very professional!"</div>
-          <div class="testimonial">"Highly recommend!"</div>
         </div>
       </section>
   
@@ -113,6 +104,9 @@
       <p>Made with &#9825; by Stella</p>
     </footer>
 
+    <!-- 還少back to top! -->
+    <!-- 也想調整scroll bar! -->
+    <!-- 還有loader page><! -->
   </div>
   <script src="main.js"></script>
 </body>

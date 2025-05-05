@@ -2,20 +2,19 @@
   "nav": {
     "about": "About",
     "services": "Services",
-    "portfolio": "Portfolio",
-    "testimonials": "Testimonials",
+    "skills": "Skills",
     "contact": "Contact ME"
   },
   "about": {
-    "title": "Hello! I'm Stella",
-    "description": "I love creating cute, pixel-style websites!"
+    "title": "Hi, I'm Stella.",
+    "description": "I'm a freelance developer passionate about building small products that bring warmth and relaxation. Currently, I'm working on a web app focused on practicing English speaking skills. Let's learn and grow together if you share the the same passion!"
   },
   "services": {
-    "title": "UI/UX Design",
+    "title": "Landing Page",
     "description": "可愛風格的網頁設計、UI/UX設計等等！",
-    "title2": "Front-end",
+    "title2": "Frontend Template",
     "description2": "實作前端網站、使用者友善體驗！",
-    "title3": "Back-end",
+    "title3": "Side Project Collab",
     "description3": "串接前後端、完整CRUD！"
   }
 }

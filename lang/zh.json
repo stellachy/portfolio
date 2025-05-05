@@ -2,20 +2,19 @@
   "nav": {
     "about": "關於我",
     "services": "服務項目",
-    "portfolio": "作品集",
-    "testimonials": "推薦評語",
+    "skills": "技術能力",
     "contact": "聯絡我"
   },
   "about": {
-    "title": "哈囉！我是 Stella",
-    "description": "我喜歡做可愛的像素風網站！"
+    "title": "嗨，我是 Stella！",
+    "description": "我是自由開發者，喜歡能帶來溫暖與放鬆感的小產品、做可愛像素風格的網站！目前正在開發一個小型網頁，是以練習英文口說為主題的，同時也在紀錄開發過程中遇到的實用技術與心得，期待能與大家一起努力學習、成長～"
   },
   "services": {
-    "title": "UI/UX設計",
+    "title": "單頁式首頁設計與部署",
     "description": "可愛風格的網頁設計、UI/UX設計等等！",
-    "title2": "前端實作",
+    "title2": "前後端串接，實作網頁模版",
     "description2": "實作前端網站、使用者友善體驗！",
-    "title3": "後端串接",
+    "title3": "Side Project 合作",
     "description3": "撰寫API、完整CRUD！"
   }
 }
