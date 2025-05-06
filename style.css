@@ -48,8 +48,18 @@ h1, h2 {
   font-family: var(--title-font-family);
 }
 
-button {
+button{
   font-family: var(--font-family);
+}
+button:focus-visible {
+  outline: 2px dashed var(--primary);
+  outline-offset: 1px;
+  border-radius: 16px;
+}
+a:focus-visible {
+  outline: 2px dashed var(--primary);
+  outline-offset: 1px;
+  border-radius: 16px;
 }
 
 /* 最外面有個可愛框框 */
@@ -71,7 +81,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   margin: -2rem -2rem;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
@@ -259,54 +269,136 @@ section {
 
 .cta-button {
   margin-top: 1rem;
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem;
   background-color: var(--accent-dark);
   border: 2px solid var(--primary);
-  border-radius: 20px;
+  border-radius: 16px;
   color: white;
-  font-weight: bold;
+  font-family: var(--title-font-family);
+  box-shadow: 2px 2px 0 var(--primary);
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  outline: none;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
-  
 }
-.cta-a {
-  padding: 0.8rem 1.5rem;
-  border-radius: 20px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.4s ease-in-out;
-}
-.cta-a:hover {
-  color: var(--primary);
-}
-.cta-button:hover {
+.cta-button:hover,
+.cta-button:focus {
   background-color: var(--accent-medium);
   border: 2px solid var(--accent-dark);
+  box-shadow: 2px 2px 0 var(--accent-dark);
+}
+
+.cta-button:active {
+  box-shadow: 0 0 0 var(--primary); /* 拿掉shadow像是被按下去 */
+  transform: translate(2px, 2px);
+}
+
+.cta-button a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.cta-button:hover a,
+.cta-button:focus a {
+  color: var(--primary);
 }
 
 /* Services Grid */
 .services-grid {
+  padding: 0 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 2rem;
+  /* margin-top: 2rem; */
+  margin: 2rem auto 0;
 }
 
 .service-item {
   background-color: var(--accent-medium);
   padding: 1rem;
   border-radius: 15px;
+  box-shadow: 2px 2px var(--primary);
+  max-width: 250px;
+  transition: all 0.4s ease-in-out;
 }
 
-/* Testimonials */
-.testimonial-box {
-  background-color: var(--accent-medium);
-  margin: 1rem auto;
-  padding: 1.5rem;
-  max-width: 400px;
-  border-radius: 15px;
+.service-item img {
+  margin-top: 1rem;
+  width: 150px;
+}
+
+.service-item:hover {
+  background-color: var(--accent-light);
+  box-shadow: 0px 0px var(--primary);
+}
+
+/* Skills */
+.carousel-wrapper {
+  margin: 2rem 4rem 0;
+  overflow: hidden;
+  padding: 1rem;
+  background: rgb(255, 239, 227);
+  border-radius: 1rem;
+  border: 2px dashed var(--primary);
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll 60s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-card {
+  flex: 0 0 auto;
+  background: var(--accent-light);
+  border-radius: 1rem;
+  padding: 1rem;
+  min-width: 120px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.tech-card:hover {
+  transform: scale(1.05);
+}
+
+.tech-card i, .tech-card iconify-icon {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.progress {
+  background: #fff;
+  border-radius: 999px;
+  height: 6px;
+  width: 100%;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--accent-medium);
+}
+
+.bar {
+  height: 100%;
+  width: var(--level);
+  background: linear-gradient(to right, var(--accent-medium), var(--primary));
+  border-radius: 999px;
+  transition: width 0.5s;
 }
 
 /* Contact Form */
@@ -334,9 +426,14 @@ input, textarea {
 }
 
 /* Footer */
-.footer {
-  padding: 2rem;
-  text-align: center;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: -2rem -2rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
   background-color: var(--accent-light);
 }
 

@@ -11,10 +11,7 @@
   },
   "services": {
     "title": "Landing Page",
-    "description": "可愛風格的網頁設計、UI/UX設計等等！",
     "title2": "Frontend Template",
-    "description2": "實作前端網站、使用者友善體驗！",
-    "title3": "Side Project Collab",
-    "description3": "串接前後端、完整CRUD！"
+    "title3": "Side Project Collab"
   }
 }

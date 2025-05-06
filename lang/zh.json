@@ -11,10 +11,7 @@
   },
   "services": {
     "title": "單頁式首頁設計與部署",
-    "description": "可愛風格的網頁設計、UI/UX設計等等！",
     "title2": "前後端串接，實作網頁模版",
-    "description2": "實作前端網站、使用者友善體驗！",
-    "title3": "Side Project 合作",
-    "description3": "撰寫API、完整CRUD！"
+    "title3": "Side Project 合作"
   }
 }

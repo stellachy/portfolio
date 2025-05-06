@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella's Portfolio</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/profile_pic.png">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="border-container">
 
@@ -25,7 +30,7 @@
             <li><a href="#contact" data-i18n="nav.contact">☎️ Contact</a></li>
           </ul>
         </div>
-        
+
         <div class="nav-tail">
           <button id="lang-toggle" class="lang-btn">中文</button>
           <div class="toggle-switch">
@@ -40,7 +45,7 @@
         </div>
       </nav>
     </header>
-  
+
     <main>
 
       <section id="about">
@@ -51,37 +56,181 @@
             <h3 data-i18n="about.description">I love creating cute, pixel-style websites!</h3>
           </div>
         </div>
-        <button class="cta-button"><a href="#contact" class="cta-a">Contact ME</a></button>
-        
+        <button class="cta-button"><a href="#contact" data-i18n="nav.contact">Contact ME</a></button>
+
       </section>
-  
+
       <section id="services">
-        <h2 data-i18n="nav.services">Services / Products</h2>
+        <h2 data-i18n="nav.services">Services</h2>
         <div class="services-grid">
-          <div class="service-item" >
-            <h3 data-i18n="services.title">UI/UX Design</h3>
-            <p data-i18n="services.description">123</p>
+          <div class="service-item">
+            <h3 data-i18n="services.title">Landing Page</h3>
+            <img src="/assets/service1.PNG" alt="service1_pic">
           </div>
           <div class="service-item">
-            <h3 data-i18n="services.title2">Front-end</h3>
-            <p data-i18n="services.description2">456</p>
+            <h3 data-i18n="services.title2">Frontend Template</h3>
+            <img src="/assets/service2.PNG" alt="service1_pic">
           </div>
           <div class="service-item">
-            <h3 data-i18n="services.title3">Back-end</h3>
-            <p data-i18n="services.description3">789</p>
+            <h3 data-i18n="services.title3">Side Project Collab</h3>
+            <img src="/assets/service3.PNG" alt="service1_pic">
           </div>
         </div>
       </section>
-  
+
       <section id="skills">
         <h2 data-i18n="nav.skills">Skills</h2>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">Project 1</div>
-          <div class="portfolio-item">Project 2</div>
-          <div class="portfolio-item">Project 3</div>
+        <!-- 技術輪播區 -->
+        <div class="carousel-wrapper" onmouseover="pauseCarousel()" onmouseout="startCarousel()">
+          <div class="carousel-track" id="carouselTrack">
+
+            <div class="tech-card" style="--level: 90%">
+              <i class="fab fa-html5"></i>
+              <span>HTML</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 85%">
+              <i class="fab fa-css3-alt"></i>
+              <span>CSS</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 80%">
+              <i class="fab fa-js"></i>
+              <span>JavaScript</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 70%">
+              <i class="fab fa-react"></i>
+              <span>React</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card">
+              <i class="fab fa-bootstrap"></i>
+              <span>Bootstrap</span>
+              <div class="progress">
+                <div class="bar" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 60%">
+              <i class="fab fa-php"></i>
+              <span>PHP</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 70%">
+              <iconify-icon icon="simple-icons:laravel"></iconify-icon>
+              <span>Laravel</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 65%">
+              <iconify-icon icon="simple-icons:mysql"></iconify-icon>
+              <span>MySQL</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 50%">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 65%">
+              <iconify-icon icon="simple-icons:amazonaws"></iconify-icon>
+              <span>AWS</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+
+            <!-- 重複一遍🔁 -->
+            <div class="tech-card" style="--level: 90%">
+              <i class="fab fa-html5"></i>
+              <span>HTML</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 85%">
+              <i class="fab fa-css3-alt"></i>
+              <span>CSS</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 80%">
+              <i class="fab fa-js"></i>
+              <span>JavaScript</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 70%">
+              <i class="fab fa-react"></i>
+              <span>React</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card">
+              <i class="fab fa-bootstrap"></i>
+              <span>Bootstrap</span>
+              <div class="progress">
+                <div class="bar" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 60%">
+              <i class="fab fa-php"></i>
+              <span>PHP</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 70%">
+              <iconify-icon icon="simple-icons:laravel"></iconify-icon>
+              <span>Laravel</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 65%">
+              <iconify-icon icon="simple-icons:mysql"></iconify-icon>
+              <span>MySQL</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 50%">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+            <div class="tech-card" style="--level: 65%">
+              <iconify-icon icon="simple-icons:amazonaws"></iconify-icon>
+              <span>AWS</span>
+              <div class="progress">
+                <div class="bar"></div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
-  
+
       <section id="contact">
         <h2 data-i18n="nav.contact">Contact Me</h2>
         <form id="contact-form">
@@ -94,12 +243,12 @@
         </form>
       </section>
     </main>
-  
+
     <footer>
       <div class="social-links">
-        <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
-        <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
-        <a href="#"><img src="assets/icons/email.svg" alt="Email"></a>
+        <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter">Twitter</a>
+        <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram">GitHub</a>
+        <a href="#"><img src="assets/icons/email.svg" alt="Email">Email</a>
       </div>
       <p>Made with &#9825; by Stella</p>
     </footer>
@@ -110,4 +259,5 @@
   </div>
   <script src="main.js"></script>
 </body>
+
 </html>

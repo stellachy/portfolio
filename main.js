@@ -7,7 +7,7 @@ themeToggle.addEventListener('change', () => {
 });
 
 // 預設語言（抓取使用者預設系統！）
-let currentLang  = 'en';  // 預設是英文
+let currentLang = 'en';  // 預設是英文
 
 let userLang = navigator.language || navigator.userLanguage;
 
@@ -44,8 +44,8 @@ async function loadLanguage(lang) {
 
     const data = await response.json();
     updateTexts(data);
-    
-  } catch(error) {
+
+  } catch (error) {
     console.error('Language loadinf error', error);
   }
 }
@@ -59,9 +59,20 @@ function updateTexts(data) {
     keys.forEach(k => {
       value = value?.[k];
     })
-    
+
     if (value) {
       elem.textContent = value;
     }
   });
+}
+
+// Skills輪播
+let track = document.getElementById('carouselTrack');
+
+function pauseCarousel() {
+  track.style.animationPlayState = 'paused';
+}
+
+function startCarousel() {
+  track.style.animationPlayState = 'running';
 }
