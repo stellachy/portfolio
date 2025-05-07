@@ -64,7 +64,22 @@ a:focus-visible {
   border-radius: 16px;
 }
 
+/* 修正 autofill 背景顏色（Chrome/Safari） */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px #fff7ef inset !important; /* 溫柔淡米色背景 */
+  -webkit-text-fill-color: var(--font-color) !important;
+  font-family: var(--font-family) !important;
+  font-weight: 600 !important;
+  transition: background-color 9999s ease-in-out 0s; /* 防止突然閃現原色 */
+}
 
+/* 自訂選取時的顏色（文字選取 highlight） */
+input::selection,
+textarea::selection {
+  background-color: #ffe6d4; /* 淡杏橘色 */
+  color: var(--font-color);
+}
 
 /* 最外面有個可愛框框 */
 .border-container {
