@@ -51,6 +51,8 @@ h1, h2 {
 button{
   font-family: var(--font-family);
 }
+
+/* 鍵盤tab選取時的框框 */
 button:focus-visible {
   outline: 2px dashed var(--primary);
   outline-offset: 1px;
@@ -61,6 +63,8 @@ a:focus-visible {
   outline-offset: 1px;
   border-radius: 16px;
 }
+
+
 
 /* 最外面有個可愛框框 */
 .border-container {
@@ -272,14 +276,16 @@ section {
   padding: 1rem 2rem;
   background-color: var(--accent-dark);
   border: 2px solid var(--primary);
-  border-radius: 16px;
-  color: white;
-  font-family: var(--title-font-family);
   box-shadow: 2px 2px 0 var(--primary);
+  border-radius: 16px;
+  color: var(--border-color);
+  font-family: var(--title-font-family);
   position: relative;
   transition: all 0.2s ease-in-out;
   outline: none;
   cursor: pointer;
+  min-width: 200px;
+  height: 40px;
 }
 .cta-button:hover,
 .cta-button:focus {
@@ -402,33 +408,102 @@ section {
 }
 
 /* Contact Form */
-#contact-form {
+#contact form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 400px;
-  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 500px;
+  margin: 2rem auto 1rem;
 }
 
-input, textarea {
-  padding: 0.8rem;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
+#contact input,
+#contact textarea {
+  padding: 12px 14px;
+  border: 2px solid var(--border-color);
+  background-color: var(--accent-light);
+  border-radius: 14px;
+  color: var(--font-color);
+  /* max-width: 280px; */
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+  font-family: var(--font-family);
+  font-weight: 600;
 }
 
-.submit-button {
-  background-color: var(--primary);
-  color: white;
+#contact input:focus,
+#contact textarea:focus {
+  border-color: var(--accent-dark);
+  outline: none;
+}
+
+#contact input[name="user_name"] {
+  width: 180px;
+}
+
+#contact input[name="user_mail"] {
+  width: 315px;
+}
+
+#contact textarea {
+  max-width: 100%;
+  min-width: 280px;
+  min-height: 120px;
+  resize: none;
+}
+
+#submitBtn {
+  background-color: var(--accent-dark);
+  color: var(--border-color);
+  box-shadow: 0px 2px var(--accent-medium);
+  font-weight: bold;
+  padding: 10px 20px;
   border: none;
-  padding: 0.8rem;
   border-radius: 10px;
+  font-family: var(--title-font-family);
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#submitBtn:hover {
+  background-color: var(--accent-medium);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: 2px 2px var(--accent-dark);
+}
+
+#submitBtn:disabled {
+  background-color: #d3c1b7;
+  color: #fff8f2;
+  cursor: not-allowed;
+  opacity: 0.8;
+  border: none;
+  box-shadow: none;
+}
+
+/* contact-form's spinner while sending mails */
+.spinner {
+  border: 2px solid var(--accent-dark);
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.3s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Footer */
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   margin: -2rem -2rem;
@@ -439,7 +514,102 @@ footer {
 
 .social-links a {
   margin: 0 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
+
+.social-links i {
+  padding-right: 0.5rem;
+}
+footer p {
+  margin: 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+/* Toast */
+.toast-wrapper {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* z-index: 9999; */
+}
+
+.toast-wrapper.hidden {
+  display: none;
+}
+
+.toast {
+  background-color: var(--background);
+  color: var(--font-color);
+  border: 2px solid var(--border-color);
+  font-family: var(--font-family);
+  width: 200px;
+  box-shadow: 4px 4px 0 var(--accent-medium);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.toast-header {
+  background-color: var(--accent-light);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-family: var(--title-font-family);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.toast-body {
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+.toast.pop {
+  animation: popIn 0.35s ease;
+}
+.toast.shake {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#toastClose {
+  background-color: transparent;
+  border: none;
+  font-family: var(--title-font-family);
+  font-size: 12px;
+  color: var(--font-color);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+#toastClose:hover {
+  background-color: var(--accent-medium);
 }
 
 /* Responsive Design */

@@ -76,3 +76,72 @@ function pauseCarousel() {
 function startCarousel() {
   track.style.animationPlayState = 'running';
 }
+
+// Show (cuter) Toast
+const wrapper = document.getElementById("toastWrapper");
+function showToast(message, isSuccess = true) {
+  const toast = document.getElementById("toast");
+  const toastMsg = document.getElementById("toastMsg");
+  const toastTitle = document.getElementById("toastTitle");
+
+  // 顯示toast
+  wrapper.classList.remove("hidden");
+
+  // 清除動畫 class (重新觸發用）
+  toast.classList.remove("pop", "shake");
+  void toast.offsetWidth; // 強制觸發 DOM 重繪(reflow)
+
+  toast.style.borderColor = isSuccess ? "var(--accent-dark)" : "salmon";
+  toast.classList.add(isSuccess ? "pop" : "shake");
+
+  toastMsg.textContent = message;
+  toastTitle.textContent = isSuccess ? "🧸 提示 💌成功送出" : "🧸 提示 ⚠️發生錯誤";
+
+  // 自動關閉
+  setTimeout(() => wrapper.classList.add("hidden"), 8000);
+}
+const toastClose = document.getElementById("toastClose");
+toastClose.addEventListener("click", () => wrapper.classList.add("hidden"));
+
+// Contact me (work w/ Email JS)
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // UI：顯示diasabled 按鈕
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.disabled = true;
+
+  const originalHTML = submitBtn.innerHTML;
+  submitBtn.innerHTML = `<span class="spinner"></span>送出中...`;
+
+
+  // collect data：
+  const form = e.target;
+  const formData = {
+    name: form.user_name.value,
+    email: form.user_mail.value,
+    message: form.message.value
+  };
+  // console.log(formData);
+
+  // 寄信
+  // 1) 寄給客戶
+  const sendToUser = emailjs.send("service_5vnn007", "template_o7pgx9o", formData);
+  // 2) 寄給自己
+  const sendToMe = emailjs.send("service_5vnn007", "template_3d5dmbr", formData);
+
+  Promise.all([sendToUser, sendToMe])
+    .then(() => {
+      showToast("你的訊息已順利送出！我們會盡快回覆 💌", true);
+      form.reset();
+    })
+    .catch((err) => {
+      console.error("❌ Email 寄送失敗：", err);
+      showToast("抱歉，送出過程發生錯誤！請稍後再試 😢", false);
+    })
+    .finally(() => {  // 不管結果如何都會做以下（按鈕恢復、可再傳送表單）
+      // UI：恢復按鈕狀態
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHTML;
+    });
+});

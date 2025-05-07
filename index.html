@@ -12,6 +12,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "RdUYNIKp5V1-iMwCt",
+      });
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -233,29 +242,43 @@
 
       <section id="contact">
         <h2 data-i18n="nav.contact">Contact Me</h2>
-        <form id="contact-form">
-          <input type="email" name="user_mail" placeholder="Your Email" required>
-          <input type="text" name="user_name" placeholder="Your Name" required>
-          <input type="tel" name="user_phone" placeholder="Phone Number">
-          <input type="text" name="subject" placeholder="Subject">
+        <form id="contactForm">
+          <div>
+            <input type="text" name="user_name" placeholder="Your Name" required>
+            <input type="email" name="user_mail" placeholder="Your Email" required>
+          </div>
           <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit">Submit</button>
+          <!-- <button id="submitBtn" type="submit">
+            <span class="default-text">送出</span>
+            <span class="loading-text" style="display: none;">送出中...</span>
+          </button> -->
+          <button id="submitBtn" type="submit">送出</button>
         </form>
       </section>
     </main>
 
     <footer>
       <div class="social-links">
-        <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter">Twitter</a>
-        <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram">GitHub</a>
-        <a href="#"><img src="assets/icons/email.svg" alt="Email">Email</a>
+        <a href="#"><i class="fa-brands fa-github"></i>stellachy</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i>its4della@gmail.com</a>
       </div>
       <p>Made with &#9825; by Stella</p>
     </footer>
 
+    <!-- Toast 彈窗 -->
+    <div id="toastWrapper" class="toast-wrapper hidden">
+      <div id="toast" class="toast">
+        <div class="toast-header">
+          <span id="toastTitle">🧸 提示</span>
+          <button id="toastClose">✖</button>
+        </div>
+        <div class="toast-body" id="toastMsg">這是一段訊息</div>
+      </div>
+    </div>
     <!-- 還少back to top! -->
     <!-- 也想調整scroll bar! -->
     <!-- 還有loader page><! -->
+    <!-- 調整rwd的排版、微調細節(dark modeㄚ之類的)、toast細節、contact的中英文字調整、技術＆template的調整～～ -->
   </div>
   <script src="main.js"></script>
 </body>
