@@ -145,3 +145,29 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
       submitBtn.innerHTML = originalHTML;
     });
 });
+
+// 🌀 Loader 消失效果
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  // 模擬進度條跑完後消失
+  setTimeout(() => {
+    loader.classList.add("fade-out");
+  }, 2200); // 與動畫時長一致，稍微多一點更順
+});
+
+
+// ⬆️ Back to Top 功能
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.remove('hidden');
+  } else {
+    backToTopBtn.classList.add('hidden');
+  }
+});
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});

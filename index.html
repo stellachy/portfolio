@@ -25,6 +25,17 @@
 </head>
 
 <body>
+  <!-- Loader Opening -->
+  <div id="loader" class="loader-wrapper">
+    <div class="loader-window">
+      <img src="assets/typing-star-nbg.gif" alt="loading..." class="loader-gif" />
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <p>正在載入中...請稍候</p>
+    </div>
+  </div>
+
   <div class="border-container">
 
     <header>
@@ -248,10 +259,6 @@
             <input type="email" name="user_mail" placeholder="Your Email" required>
           </div>
           <textarea name="message" placeholder="Your Message" required></textarea>
-          <!-- <button id="submitBtn" type="submit">
-            <span class="default-text">送出</span>
-            <span class="loading-text" style="display: none;">送出中...</span>
-          </button> -->
           <button id="submitBtn" type="submit">送出</button>
         </form>
       </section>
@@ -275,11 +282,16 @@
         <div class="toast-body" id="toastMsg">這是一段訊息</div>
       </div>
     </div>
-    <!-- 還少back to top! -->
-    <!-- 也想調整scroll bar! -->
-    <!-- 還有loader page><! -->
-    <!-- 調整rwd的排版、微調細節(dark modeㄚ之類的)、toast細節、contact的中英文字調整、技術＆template的調整～～ -->
+
+    <!-- 調整rwd的排版(nav的label!!!)、微調細節(dark modeㄚ之類的)、toast細節、contact的中英文字調整、技術＆服務的調整～～ -->
+    <!-- 部署 ＋ 自動部署練習 -->
   </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="back-to-top hidden" title="Back to Top">
+    <iconify-icon icon="tabler:triangle-filled"></iconify-icon>
+  </button>
+
   <script src="main.js"></script>
 </body>
 

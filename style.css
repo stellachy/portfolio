@@ -81,6 +81,32 @@ textarea::selection {
   color: var(--font-color);
 }
 
+/* 自訂scroll bar */
+::-webkit-scrollbar {
+  width: 12px; /* 垂直滾動條寬度 */
+  height: 12px; /* 水平滾動條高度 */
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: var(--background);
+  border: 2px solid var(--border-color);
+  box-shadow: inset 2px 2px var(--accent-light),
+              inset -2px -2px var(--accent-medium);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--accent-medium), var(--accent-light));
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  box-shadow: inset 1px 1px white, inset -1px -1px var(--accent-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dark);
+  box-shadow: inset 2px 2px var(--border-color);
+}
+
 /* 最外面有個可愛框框 */
 .border-container {
   border: 2px solid var(--primary);
@@ -625,6 +651,95 @@ footer p {
 
 #toastClose:hover {
   background-color: var(--accent-medium);
+}
+
+/* 🌀 Loader */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;  /* 相當於 top: 0; right: 0; bottom: 0; left: 0; 撐滿整個畫面 */
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-wrapper.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-window {
+  background-color: var(--accent-light);
+  border: 2px solid var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--title-font-family);
+  color: var(--font-color);
+  box-shadow: inset 2px 2px white, inset -2px -2px var(--accent-dark);
+  border-radius: 6px;
+  width: 280px;
+}
+
+.loader-gif {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* 進度條容器 */
+.loader-bar {
+  background-color: var(--background);
+  border: 2px solid var(--border-color);
+  height: 16px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
+/* 進度條動畫 */
+.loader-progress {
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent-dark);
+  animation: loading-progress 2s ease-in-out forwards;  /* forwards 動畫結束後 保留 動畫 最後的 狀態！*/
+}
+
+@keyframes loading-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ⬆️ Back to Top 按鈕 */
+.back-to-top {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background-color: var(--accent-light);
+  color: var(--font-color);
+  border: 2px solid var(--border-color);
+  font-family: var(--title-font-family);
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 2px 2px var(--accent-medium);
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-dark);
+}
+
+.back-to-top.hidden {
+  display: none;
 }
 
 /* Responsive Design */
