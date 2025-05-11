@@ -16,21 +16,14 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Prefetch artifact action
-        uses: actions/upload-artifact@v3
-        with:
-          name: noop
-          path: ./non-existent.txt
-          if-no-files-found: ignore
-
       - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: '.'  # 這裡是指「當前資料夾」=> index.html、assets 等檔案都會被上傳
 
