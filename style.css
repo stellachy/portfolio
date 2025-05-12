@@ -7,18 +7,23 @@
   --accent-dark: #F3AE80;
   --border-color: #FCEFDD;
   --font-color: #5C4433;
+  --input-bg: #fff7ef;
+  --selection-bg: #ffe6d4;
   --font-family: "Quicksand", sans-serif, monospace;
   --title-font-family: "Press Start 2P", system-ui;
 }
 
+/* Dark Mode */
 .dark-mode {
-  /* Dark Mode */
+  --primary: #EBC7A2;
   --background: #3E2F25;
-  --font-color: #F9DBC0;
-  --border-color: #5C4433;
   --accent-light: #5C4433;
   --accent-medium: #9E775E;
   --accent-dark: #C1916A;
+  --border-color: #5C4433;
+  --font-color: #F9DBC0;
+  --input-bg: #5A4538;
+  --selection-bg: #8C5E45;
 }
 
 /* Reset */
@@ -67,7 +72,7 @@ a:focus-visible {
 /* 修正 autofill 背景顏色（Chrome/Safari） */
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-  box-shadow: 0 0 0px 1000px #fff7ef inset !important; /* 溫柔淡米色背景 */
+  box-shadow: 0 0 0px 1000px var(--input-bg) inset !important; /* 溫柔淡米色背景 */
   -webkit-text-fill-color: var(--font-color) !important;
   font-family: var(--font-family) !important;
   font-weight: 600 !important;
@@ -77,7 +82,7 @@ textarea:-webkit-autofill {
 /* 自訂選取時的顏色（文字選取 highlight） */
 input::selection,
 textarea::selection {
-  background-color: #ffe6d4; /* 淡杏橘色 */
+  background-color: var(--selection-bg); /* 淡杏橘色 */
   color: var(--font-color);
 }
 
@@ -386,7 +391,7 @@ section {
   margin: 2rem 4rem 0;
   overflow: hidden;
   padding: 1rem;
-  background: rgb(255, 239, 227);
+  background: var(--selection-bg);
   border-radius: 1rem;
   border: 2px dashed var(--primary);
   position: relative;
@@ -744,12 +749,13 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .services-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
   }
 }
