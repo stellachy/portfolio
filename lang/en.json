@@ -26,5 +26,9 @@
     "errorTitle": "‼️ Error Occurred",
     "successMsg": "Your message has been sent successfully! We’ll get back to you soon 💌",
     "errorMsg": "Sorry, there was an error sending your message. Please try again later 🙇🏻‍♀️"
+  },
+  "404": {
+    "message": "Still fixing...",
+    "back": "Back"
   }
 }

@@ -223,3 +223,14 @@ window.addEventListener('scroll', () => {
 backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// 收起
+document.querySelector('.close-btn').addEventListener('click', () => {
+  const mainPage = document.querySelector('.border-container');
+
+  mainPage.classList.add('shrink-down');
+
+  setTimeout(() => {
+    window.location.href = '404.html';
+  }, 500); // 等動畫完成再導頁
+});
