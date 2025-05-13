@@ -46,6 +46,12 @@ async function loadLanguage(lang) {
     i18nData = data;  // 載入後儲存至此，方便後續其他函式使用
     updateTexts(data);
 
+    if (lang === 'zh') {
+      body.classList.add("lang-zh");
+    } else {
+      body.classList.remove("lang-zh");
+    }
+
   } catch (error) {
     console.error('Language loadinf error', error);
   }
