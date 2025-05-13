@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/fusion-pixel-font@latest/style.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
@@ -32,7 +33,7 @@
       <div class="loader-bar">
         <div class="loader-progress"></div>
       </div>
-      <p>正在載入中...請稍候</p>
+      <p data-i18n="loader.psg">正在載入中...請稍候</p>
     </div>
   </div>
 
@@ -101,154 +102,116 @@
       <section id="skills">
         <h2 data-i18n="nav.skills">Skills</h2>
         <!-- 技術輪播區 -->
-        <div class="carousel-wrapper" onmouseover="pauseCarousel()" onmouseout="startCarousel()">
+
+        <div class="carousel-wrapper" id="carouselWrapper">
           <div class="carousel-track" id="carouselTrack">
 
+            <!-- 第一組卡片 -->
             <div class="tech-card" style="--level: 90%">
-              <i class="fab fa-html5"></i>
-              <span>HTML</span>
-              <div class="progress">
-                <div class="bar"></div>
+              <div class="tech-card-top">
+                <i class="fab fa-html5"></i>
+                <span>HTML</span>
               </div>
-            </div>
-            <div class="tech-card" style="--level: 85%">
-              <i class="fab fa-css3-alt"></i>
-              <span>CSS</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 80%">
-              <i class="fab fa-js"></i>
-              <span>JavaScript</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 70%">
-              <i class="fab fa-react"></i>
-              <span>React</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card">
-              <i class="fab fa-bootstrap"></i>
-              <span>Bootstrap</span>
-              <div class="progress">
-                <div class="bar" style="width: 75%"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 60%">
-              <i class="fab fa-php"></i>
-              <span>PHP</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 70%">
-              <iconify-icon icon="simple-icons:laravel"></iconify-icon>
-              <span>Laravel</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 65%">
-              <iconify-icon icon="simple-icons:mysql"></iconify-icon>
-              <span>MySQL</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 50%">
-              <i class="fab fa-github"></i>
-              <span>GitHub</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
-            <div class="tech-card" style="--level: 65%">
-              <iconify-icon icon="simple-icons:amazonaws"></iconify-icon>
-              <span>AWS</span>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
 
-            <!-- 重複一遍🔁 -->
-            <div class="tech-card" style="--level: 90%">
-              <i class="fab fa-html5"></i>
-              <span>HTML</span>
-              <div class="progress">
-                <div class="bar"></div>
-              </div>
-            </div>
             <div class="tech-card" style="--level: 85%">
-              <i class="fab fa-css3-alt"></i>
-              <span>CSS</span>
+              <div class="tech-card-top">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 80%">
-              <i class="fab fa-js"></i>
-              <span>JavaScript</span>
+              <div class="tech-card-top">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 70%">
-              <i class="fab fa-react"></i>
-              <span>React</span>
+              <div class="tech-card-top">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card">
-              <i class="fab fa-bootstrap"></i>
-              <span>Bootstrap</span>
+              <div class="tech-card-top">
+                <i class="fab fa-bootstrap"></i>
+                <span>Bootstrap</span>
+              </div>
               <div class="progress">
                 <div class="bar" style="width: 75%"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 60%">
-              <i class="fab fa-php"></i>
-              <span>PHP</span>
+              <div class="tech-card-top">
+                <i class="fab fa-php"></i>
+                <span>PHP</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 70%">
-              <iconify-icon icon="simple-icons:laravel"></iconify-icon>
-              <span>Laravel</span>
+              <div class="tech-card-top">
+                <iconify-icon icon="simple-icons:laravel"></iconify-icon>
+                <span>Laravel</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 65%">
-              <iconify-icon icon="simple-icons:mysql"></iconify-icon>
-              <span>MySQL</span>
+              <div class="tech-card-top">
+                <iconify-icon icon="simple-icons:mysql"></iconify-icon>
+                <span>MySQL</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 50%">
-              <i class="fab fa-github"></i>
-              <span>GitHub</span>
+              <div class="tech-card-top">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
             <div class="tech-card" style="--level: 65%">
-              <iconify-icon icon="simple-icons:amazonaws"></iconify-icon>
-              <span>AWS</span>
+              <div class="tech-card-top">
+                <iconify-icon icon="simple-icons:amazonaws"></iconify-icon>
+                <span>AWS</span>
+              </div>
               <div class="progress">
                 <div class="bar"></div>
               </div>
             </div>
+
+            <!-- 🔁 重複一遍 用 JS 動態 clone 第一組 -->
 
           </div>
         </div>
+
       </section>
 
       <section id="contact">
@@ -259,15 +222,15 @@
             <input type="email" name="user_mail" placeholder="Your Email" required>
           </div>
           <textarea name="message" placeholder="Your Message" required></textarea>
-          <button id="submitBtn" type="submit">送出</button>
+          <button id="submitBtn" type="submit" data-i18n="contact.btn">送出</button>
         </form>
       </section>
     </main>
 
     <footer>
       <div class="social-links">
-        <a href="#"><i class="fa-brands fa-github"></i>stellachy</a>
-        <a href="#"><i class="fa-solid fa-envelope"></i>its4della@gmail.com</a>
+        <a href="https://github.com/stellachy"><i class="fa-brands fa-github"></i>stellachy</a>
+        <a href="mailto:its4della@gmail.com"><i class="fa-solid fa-envelope"></i>its4della@gmail.com</a>
       </div>
       <p>Made with &#9825; by Stella</p>
     </footer>
@@ -276,14 +239,15 @@
     <div id="toastWrapper" class="toast-wrapper hidden">
       <div id="toast" class="toast">
         <div class="toast-header">
-          <span id="toastTitle">🧸 提示</span>
+          <span id="toastTitle">🗂️ toast.success/eorrorTitle</span>
           <button id="toastClose">✖</button>
         </div>
-        <div class="toast-body" id="toastMsg">這是一段訊息</div>
+        <div class="toast-body" id="toastMsg">change toast.successMsg and toast.errorMsg both in zh.json & en.json! 💓
+        </div>
       </div>
     </div>
 
-    <!-- 調整中文字時的pixel font?、toast細節、contact:送出btn+loader:p的中英文字調整、技術＆服務圖片大小的調整～～ -->
+    <!-- 調整中文字時的pixel font -->
   </div>
 
   <!-- Back to Top -->

@@ -9,7 +9,7 @@
   --font-color: #5C4433;
   --input-bg: #fff7ef;
   --selection-bg: #ffe6d4;
-  --font-family: "Quicksand", sans-serif, monospace;
+  --font-family: "Quicksand", sans-serif;
   --title-font-family: "Press Start 2P", system-ui;
 }
 
@@ -46,6 +46,7 @@ body {
   font-weight: 600;
   line-height: 1.6;
   padding: 2rem;
+  font-size: 1.2rem;
 }
 
 /* Title Font */
@@ -375,9 +376,13 @@ section {
   transition: all 0.4s ease-in-out;
 }
 
+.service-item h3 {
+  margin-top: 1rem;
+}
+
 .service-item img {
   margin-top: 1rem;
-  width: 150px;
+  width: 120px;
 }
 
 .service-item:hover {
@@ -398,6 +403,7 @@ section {
 
 .carousel-track {
   display: flex;
+  padding: 1rem 0;
   gap: 2rem;
   width: max-content;
   animation: scroll 60s linear infinite;
@@ -423,6 +429,14 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: transform 0.3s;
+  font-size: 1.4rem;
+}
+
+.tech-card-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 
 .tech-card:hover {
@@ -595,7 +609,7 @@ footer p {
   color: var(--font-color);
   border: 2px solid var(--border-color);
   font-family: var(--font-family);
-  width: 200px;
+  width: 250px;
   box-shadow: 4px 4px 0 var(--accent-medium);
   border-radius: 8px;
   overflow: hidden;
@@ -608,14 +622,15 @@ footer p {
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
-  font-family: var(--title-font-family);
-  font-size: 12px;
+  /* font-family: var(--title-font-family); */
+  font-size: 1.4rem;
   letter-spacing: 0.5px;
 }
 
 .toast-body {
   padding: 12px 14px;
   font-size: 14px;
+  text-align: justify;
 }
 
 .toast.pop {

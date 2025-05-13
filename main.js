@@ -43,6 +43,7 @@ async function loadLanguage(lang) {
     }
 
     const data = await response.json();
+    i18nData = data;  // 載入後儲存至此，方便後續其他函式使用
     updateTexts(data);
 
   } catch (error) {
@@ -68,18 +69,52 @@ function updateTexts(data) {
 
 // Skills輪播
 let track = document.getElementById('carouselTrack');
+let isPaused = false;
 
-function pauseCarousel() {
-  track.style.animationPlayState = 'paused';
+// 桌機版：hover 暫停、離開繼續
+document.getElementById('carouselWrapper').addEventListener('mouseenter', () => {
+  if (!isMobile()) {
+    track.style.animationPlayState = 'paused';
+  }
+});
+document.getElementById('carouselWrapper').addEventListener('mouseleave', () => {
+  if (!isMobile() && !isPaused) {
+    track.style.animationPlayState = 'running';
+  }
+});
+
+// 手機版：點擊切換播放狀態
+track.addEventListener('click', () => {
+  if (isMobile()) {
+    isPaused = !isPaused;
+    track.style.animationPlayState = isPaused ? 'paused' : 'running';
+  }
+});
+
+// 工具函式：判斷是否是手機寬度
+function isMobile() {
+  return window.innerWidth <= 768;
 }
 
-function startCarousel() {
-  track.style.animationPlayState = 'running';
-}
+// 用js clone 第一組 tech-card
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById("carouselTrack");
+  const cards = track.querySelectorAll(".tech-card");
+
+  // 記住第一組的卡片數
+  const initialCount = cards.length;
+
+  // 將第一組複製一遍，並加進去 track 內
+  for (let i = 0; i < initialCount; i++) {
+    const clone = cards[i].cloneNode(true);
+    track.appendChild(clone);
+  }
+});
 
 // Show (cuter) Toast
+let i18nData = {};  // 儲存目前語言資料
 const wrapper = document.getElementById("toastWrapper");
-function showToast(message, isSuccess = true) {
+function showToast(messageKey, isSuccess = true) {
   const toast = document.getElementById("toast");
   const toastMsg = document.getElementById("toastMsg");
   const toastTitle = document.getElementById("toastTitle");
@@ -94,14 +129,26 @@ function showToast(message, isSuccess = true) {
   toast.style.borderColor = isSuccess ? "var(--accent-dark)" : "salmon";
   toast.classList.add(isSuccess ? "pop" : "shake");
 
-  toastMsg.textContent = message;
-  toastTitle.textContent = isSuccess ? "🧸 提示 💌成功送出" : "🧸 提示 ⚠️發生錯誤";
+  // 從i18nData資料中，拿取對應的值
+  const titleKey = isSuccess ? "toast.successTitle" : "toast.errorTitle";
+  toastMsg.textContent = getI18nText(messageKey);
+  toastTitle.textContent = getI18nText(titleKey);
 
   // 自動關閉
   setTimeout(() => wrapper.classList.add("hidden"), 8000);
 }
 const toastClose = document.getElementById("toastClose");
 toastClose.addEventListener("click", () => wrapper.classList.add("hidden"));
+
+// 傳入key後，取得該key之值
+function getI18nText(key) {
+  const keys = key.split('.');
+  let value = i18nData;
+  keys.forEach(k => {
+    value = value?.[k];
+  });
+  return value || key;  // 找不到就回傳 key
+}
 
 // Contact me (work w/ Email JS)
 document.getElementById("contactForm").addEventListener("submit", (e) => {
@@ -112,8 +159,7 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
   submitBtn.disabled = true;
 
   const originalHTML = submitBtn.innerHTML;
-  submitBtn.innerHTML = `<span class="spinner"></span>送出中...`;
-
+  submitBtn.innerHTML = `<span class="spinner"></span>${getI18nText('contact.submitting')}`;
 
   // collect data：
   const form = e.target;
@@ -132,12 +178,12 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
 
   Promise.all([sendToUser, sendToMe])
     .then(() => {
-      showToast("你的訊息已順利送出！我們會盡快回覆 💌", true);
+      showToast("toast.successMsg", true);
       form.reset();
     })
     .catch((err) => {
       console.error("❌ Email 寄送失敗：", err);
-      showToast("抱歉，送出過程發生錯誤！請稍後再試 😢", false);
+      showToast("toast.errorMsg", false);
     })
     .finally(() => {  // 不管結果如何都會做以下（按鈕恢復、可再傳送表單）
       // UI：恢復按鈕狀態

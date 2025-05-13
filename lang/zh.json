@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "psg": "正在載入中...請稍候"
+  },
   "nav": {
     "about": "關於我",
     "services": "服務項目",
@@ -13,5 +16,15 @@
     "title": "單頁式首頁設計與部署",
     "title2": "前後端串接，實作網頁模版",
     "title3": "Side Project 合作"
+  },
+  "contact": {
+    "btn": "送出",
+    "submitting": "送出中..."
+  }, 
+  "toast": {
+    "successTitle": "📮 提示 - 成功送出",
+    "errorTitle": "‼️ 提示 - 發生錯誤",
+    "successMsg": "你的訊息已順利送出！我們會盡快回覆 💌",
+    "errorMsg": "抱歉，送出過程發生錯誤！請稍後再試 🙇🏻‍♀️"
   }
 }

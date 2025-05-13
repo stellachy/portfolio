@@ -1,4 +1,7 @@
 {
+  "loader": {
+    "psg": "Loading..."
+  },
   "nav": {
     "about": "About",
     "services": "Services",
@@ -13,5 +16,15 @@
     "title": "Landing Page",
     "title2": "Frontend Template",
     "title3": "Side Project Collab"
+  },
+  "contact": {
+    "btn": "Submit",
+    "submitting": "Sending..."
+  },
+  "toast": {
+    "successTitle": "📮 Sent Successfully",
+    "errorTitle": "‼️ Error Occurred",
+    "successMsg": "Your message has been sent successfully! We’ll get back to you soon 💌",
+    "errorMsg": "Sorry, there was an error sending your message. Please try again later 🙇🏻‍♀️"
   }
 }
