@@ -38,14 +38,14 @@
     "item1": "📱 響應式設計",
     "item2": "🌙 深色模式切換",
     "item3": "🚧 自訂 404 頁面",
-    "item4": "✨ 動態載入畫面",
+    "item4": "✨ 載入畫面銜接動畫",
     "item5": "🌏 雙語支援（英文／中文）",
     "item6": "🔍 SEO 與 Open Graph 設定"
   },
   "projects": {
     "title": "作品展示",
     "crochet": {
-      "title": "CrochetLand 🧶",
+      "title": "Crochet Land 🧶",
       "desc": "為手作、預購型小商家設計的網站模板",
       "item1": "響應式設計，簡約溫馨的介面風格",
       "item2": "購物車邏輯與自訂提示訊息",
