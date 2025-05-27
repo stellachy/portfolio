@@ -53,7 +53,7 @@ async function loadLanguage(lang) {
     }
 
   } catch (error) {
-    console.error('Language loadinf error', error);
+    console.error('Language loading error', error);
   }
 }
 

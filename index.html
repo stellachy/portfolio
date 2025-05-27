@@ -5,8 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella's Portfolio</title>
-  <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/profile_pic.png">
+
+  <!-- Open Graph (Social Media Sharing) -->
+  <meta property="og:title" content="Stella's Portfolio" />
+  <meta property="og:description"
+    content="Stella's Portfolio – Cozy websites with simple and cute aesthetics. I enjoy crafting responsive sites with a focus on clean layouts and thoughtful details." />
+  <meta property="og:image" content="https://stellachy.online/assets/profile_pic.png" />
+  <meta property="og:url" content="https://stellachy.online/" />
+  <meta property="og:site_name" content="Stella's Portfolio" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:title" content="Stella's Portfolio">
+  <meta name="twitter:description"
+    content="Stella's Portfolio – Cozy websites with simple and cute aesthetics. I enjoy crafting responsive sites with a focus on clean layouts and thoughtful details.">
+  <meta name="twitter:image" content="https://stellachy.online/assets/profile_pic.png">
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- <link rel="manifest" href="manifest.json"> -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,7 +63,9 @@
           <div class="logo">Stella</div>
           <ul class="nav-links">
             <li><a href="#about" data-i18n="nav.about">🙋🏻‍♀️ About</a></li>
-            <li><a href="#services" data-i18n="nav.services">🍗 Services</a></li>
+            <li><a href="#site" data-i18n="nav.site">👩🏻‍💻 Site</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">📜 Projects</a></li>
+            <!-- <li><a href="#services" data-i18n="nav.services">🍗 Services</a></li> -->
             <li><a href="#skills" data-i18n="nav.skills">🔧 Skills</a></li>
             <li><a href="#contact" data-i18n="nav.contact">☎️ Contact</a></li>
           </ul>
@@ -80,7 +99,78 @@
         <button class="cta-button"><a href="#contact" data-i18n="nav.contact">Contact ME</a></button>
       </section>
 
-      <section id="services">
+      <section id="site">
+        <div class="site-wrapper">
+          <h2 data-i18n="site.title">About This Site</h2>
+          <ul>
+            <li data-i18n="site.item1">📱 Fully responsive design</li>
+            <li data-i18n="site.item2">🌙 Dark mode toggle</li>
+            <li data-i18n="site.item3">🚧 Custom 404 page</li>
+            <li data-i18n="site.item4">✨ Animated loading screen</li>
+            <li data-i18n="site.item5">🌏 Bilingual support (EN/ZH)</li>
+            <li data-i18n="site.item6">🔍 SEO meta tags & Open Graph</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="projects-wrapper">
+          <h2 data-i18n="projects.title">Projects</h2>
+
+          <div class="project-item">
+            <h3 data-i18n="projects.crochet.title">CrochetLand 🧶</h3>
+            <span data-i18n="projects.crochet.desc"><strong>Designed for small handmade business owners to customize
+                their own products</strong></span>
+            <div class="img-wrapper">
+              <img src="assets/crochet-preview.png" alt="CrochetLand site preview">
+              <a href="https://crochet.stellachy.online" target="_blank" class="demo-btn"><i
+                  class="fa-regular fa-circle-play"></i> Watch Live</a>
+            </div>
+
+            <ul>
+              <li data-i18n="projects.crochet.item1">Fully responsive with simple & cozy UI</li>
+              <li data-i18n="projects.crochet.item2">Cart logic and toast customization</li>
+              <li data-i18n="projects.crochet.item3">Smooth left-swipe scroll on mobile</li>
+              <li data-i18n="projects.crochet.item4">Modular, user-friendly components</li>
+              <li data-i18n="projects.crochet.item5">EmailJS integration for email sending</li>
+              <li><em data-i18n="projects.crochet.item6">More updates coming soon – payment gateway planned!</em></li>
+            </ul>
+          </div>
+
+          <div class="project-item">
+            <h3 data-i18n="projects.order.title">Order Search 🌱</h3>
+            <span data-i18n="projects.order.desc"><strong>Order management tool for family’s nursery
+                business</strong></span>
+            <div class="img-wrapper">
+              <img src="assets/order-preview.png" alt="Dressify demo preview">
+              <a href="https://youtube.com/shorts/burUTfEzJNw?feature=share" target="_blank" class="demo-btn"><i
+                  class="fa-regular fa-circle-play"></i> View Demo</a>
+            </div>
+            <ul>
+              <li data-i18n="projects.order.item1">Hosted on AWS (EC2 & S3)</li>
+              <li data-i18n="projects.order.item2">Practiced CD with GitHub Actions</li>
+            </ul>
+          </div>
+
+          <div class="project-item">
+            <h3 data-i18n="projects.dressify.title">Dressify 👗</h3>
+            <span data-i18n="projects.dressify.desc"><strong>Online wardrobe web app – group capstone
+                project</strong></span>
+            <div class="img-wrapper">
+              <img src="assets/dressify-preview.png" alt="Dressify demo preview">
+              <a href="https://youtube.com/shorts/ZbwM6YwsITU?feature=share" target="_blank" class="demo-btn"><i
+                  class="fa-regular fa-circle-play"></i> View Demo</a>
+            </div>
+
+            <ul>
+              <li data-i18n="projects.dressify.item1">Built with PHP Laravel & React</li>
+              <li data-i18n="projects.dressify.item2">Collaborated using GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section id="services">
         <h2 data-i18n="nav.services">Services</h2>
         <div class="services-grid">
           <div class="service-item">
@@ -96,7 +186,7 @@
             <img src="assets/service3.png" alt="service3_pic">
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section id="skills">
         <h2 data-i18n="nav.skills">Skills</h2>
@@ -106,7 +196,7 @@
           <div class="carousel-track" id="carouselTrack">
 
             <!-- 第一組卡片 -->
-            <div class="tech-card" style="--level: 90%">
+            <div class="tech-card" style="--level: 95%">
               <div class="tech-card-top">
                 <i class="fab fa-html5"></i>
                 <span>HTML</span>
@@ -116,7 +206,7 @@
               </div>
             </div>
 
-            <div class="tech-card" style="--level: 85%">
+            <div class="tech-card" style="--level: 90%">
               <div class="tech-card-top">
                 <i class="fab fa-css3-alt"></i>
                 <span>CSS</span>
@@ -126,7 +216,7 @@
               </div>
             </div>
 
-            <div class="tech-card" style="--level: 80%">
+            <div class="tech-card" style="--level: 90%">
               <div class="tech-card-top">
                 <i class="fab fa-js"></i>
                 <span>JavaScript</span>
@@ -136,7 +226,7 @@
               </div>
             </div>
 
-            <div class="tech-card" style="--level: 70%">
+            <div class="tech-card" style="--level: 60%">
               <div class="tech-card-top">
                 <i class="fab fa-react"></i>
                 <span>React</span>
@@ -152,7 +242,7 @@
                 <span>Bootstrap</span>
               </div>
               <div class="progress">
-                <div class="bar" style="width: 75%"></div>
+                <div class="bar" style="width: 70%"></div>
               </div>
             </div>
 
@@ -166,7 +256,7 @@
               </div>
             </div>
 
-            <div class="tech-card" style="--level: 70%">
+            <div class="tech-card" style="--level: 60%">
               <div class="tech-card-top">
                 <iconify-icon icon="simple-icons:laravel"></iconify-icon>
                 <span>Laravel</span>
@@ -186,7 +276,7 @@
               </div>
             </div>
 
-            <div class="tech-card" style="--level: 50%">
+            <div class="tech-card" style="--level: 80%">
               <div class="tech-card-top">
                 <i class="fab fa-github"></i>
                 <span>GitHub</span>
@@ -196,7 +286,7 @@
               </div>
             </div>
 
-            <div class="tech-card" style="--level: 65%">
+            <div class="tech-card" style="--level: 60%">
               <div class="tech-card-top">
                 <iconify-icon icon="simple-icons:amazonaws"></iconify-icon>
                 <span>AWS</span>

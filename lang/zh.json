@@ -4,13 +4,15 @@
   },
   "nav": {
     "about": "關於我",
+    "site": "網站特色",
+    "projects": "作品展示",
     "services": "服務項目",
     "skills": "技術能力",
     "contact": "聯絡我"
   },
   "about": {
     "title": "嗨，我是 Stella！",
-    "description": "我是自由開發者，喜歡能帶來溫暖與放鬆感的小產品、做可愛像素風格的網站！目前正在開發一個小型網頁，是以練習英文口說為主題的，同時也在紀錄開發過程中遇到的實用技術與心得，期待能與大家一起努力學習、成長～"
+    "description": "專注於網頁開發與設計，擅長結合簡潔介面與溫暖風格，打造清晰易用的網站體驗。現階段正在持續累積開發實作經驗，並進行個人專案練習，期待未來能參與團隊合作與大型產品開發！"
   },
   "services": {
     "title": "單頁式首頁設計與部署",
@@ -20,7 +22,7 @@
   "contact": {
     "btn": "送出",
     "submitting": "送出中..."
-  }, 
+  },
   "toast": {
     "successTitle": "📮 提示 - 成功送出",
     "errorTitle": "‼️ 提示 - 發生錯誤",
@@ -30,5 +32,39 @@
   "404": {
     "message": "還在施工中...",
     "back": "回首頁"
+  },
+  "site": {
+    "title": "關於網站",
+    "item1": "📱 響應式設計",
+    "item2": "🌙 深色模式切換",
+    "item3": "🚧 自訂 404 頁面",
+    "item4": "✨ 動態載入畫面",
+    "item5": "🌏 雙語支援（英文／中文）",
+    "item6": "🔍 SEO 與 Open Graph 設定"
+  },
+  "projects": {
+    "title": "作品展示",
+    "crochet": {
+      "title": "CrochetLand 🧶",
+      "desc": "為手作、預購型小商家設計的網站模板",
+      "item1": "響應式設計，簡約溫馨的介面風格",
+      "item2": "購物車邏輯與自訂提示訊息",
+      "item3": "手機版支援滑動回上頁效果",
+      "item4": "模組化、使用者友善的元件設計",
+      "item5": "整合 EmailJS 寄信功能",
+      "item6": "即將推出更多功能，如金流串接！"
+    },
+    "order": {
+      "title": "Order Search 🌱",
+      "desc": "協助家人苗圃生意管理訂單的小工具",
+      "item1": "部署於 AWS（EC2 與 S3）",
+      "item2": "透過 GitHub Actions 練習自動部署流程"
+    },
+    "dressify": {
+      "title": "Dressify 👗",
+      "desc": "線上衣櫥管理系統 – 小組專題作品",
+      "item1": "使用 PHP Laravel 與 React JS 打造",
+      "item2": "團隊透過 GitHub 協作開發"
+    }
   }
 }
