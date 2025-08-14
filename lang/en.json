@@ -46,7 +46,7 @@
     "title": "Projects",
     "crochet": {
       "title": "Crochet Land 🧶",
-      "desc": "Designed for small handmade business owners to customize their own products",
+      "desc": "Designed for small handmade business owners to showcase their work with cozy touch",
       "item1": "Fully responsive with simple & cozy UI",
       "item2": "Cart logic and toast customization",
       "item3": "Smooth left-swipe scroll on mobile",
@@ -54,8 +54,15 @@
       "item5": "EmailJS integration for email sending",
       "item6": "More updates coming soon – payment gateway planned!"
     },
+    "picora": {
+      "title": "Picora 📸",
+      "desc": "A warm-style online photography portfolio designed for photographers",
+      "item1": "Fully responsive with a minimal and cozy interface",
+      "item2": "Designed and deployed with Framer for easy customization",
+      "item3": "Photography portfolio integrated with Framer CMS"
+    },
     "order": {
-      "title": "Order Search 🌱",
+      "title": "Check Order 🌱",
       "desc": "Order management tool for family’s nursery business",
       "item1": "Hosted on AWS (EC2 & S3)",
       "item2": "Practiced CD with GitHub Actions"

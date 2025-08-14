@@ -46,7 +46,7 @@
     "title": "作品展示",
     "crochet": {
       "title": "Crochet Land 🧶",
-      "desc": "為手作、預購型小商家設計的網站模板",
+      "desc": "為手作小商家打造的溫馨線上作品展示",
       "item1": "響應式設計，簡約溫馨的介面風格",
       "item2": "購物車邏輯與自訂提示訊息",
       "item3": "手機版支援滑動回上頁效果",
@@ -54,8 +54,15 @@
       "item5": "整合 EmailJS 寄信功能",
       "item6": "即將推出更多功能，如金流串接！"
     },
+    "picora": {
+      "title": "Picora 📸",
+      "desc": "為攝影師打造的溫暖風格線上攝影作品集",
+      "item1": "響應式設計，極簡又溫馨的介面",
+      "item2": "使用 Framer 設計與部署，輕鬆自訂",
+      "item3": "透過 Framer CMS 整合拍攝作品"
+    },
     "order": {
-      "title": "Order Search 🌱",
+      "title": "Check Order 🌱",
       "desc": "協助家人苗圃生意管理訂單的小工具",
       "item1": "部署於 AWS（EC2 與 S3）",
       "item2": "透過 GitHub Actions 練習自動部署流程"
