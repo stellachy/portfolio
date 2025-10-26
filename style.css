@@ -60,7 +60,8 @@
   --font-color: #F9DBC0;
   --input-bg: #5A4538;
   --selection-bg: #8C5E45;
-  --hover-bg: #ffdfc520;;  
+  --hover-bg: #ffdfc520;
+  ;
 }
 
 /* Reset */
@@ -970,6 +971,17 @@ footer p {
   /* adjust footer */
   footer {
     flex-direction: column;
+  }
+
+  /* 微調手機版時，email過長換行問題 */
+  .email-text {
+    display: inline-block;
+    max-width: 160px; /* email寬度限制 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding-bottom: 3px;
   }
 }
 
