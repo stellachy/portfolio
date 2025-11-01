@@ -75,6 +75,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  max-width: 100%;
 }
 
 /* Body */
@@ -404,7 +405,8 @@ section {
 .sticker-wrap::before {
   content: '';
   position: absolute;
-  inset: -8px; /* 控制邊框厚度 */
+  inset: -8px;
+  /* 控制邊框厚度 */
   background: var(--accent-dark);
   mask: url('assets/profile_nbg.png') no-repeat center / contain;
   -webkit-mask: url('assets/profile_nbg.png') no-repeat center / contain;
@@ -425,13 +427,14 @@ section {
 /* chat bubble */
 .chat-bubble {
   position: absolute;
-  bottom: 110%; /* 出現在頭像上方 */
+  bottom: 110%;
+  /* 出現在頭像上方 */
   right: -10%;
   background: var(--input-bg);
   font-size: 1.3rem;
   padding: 6px 10px;
   border-radius: 12px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.4s ease;
@@ -451,7 +454,7 @@ section {
   border-width: 6px;
   border-style: solid;
   border-color: var(--input-bg) transparent transparent transparent;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.15)); 
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.15));
 }
 
 /* hover 時讓泡泡出現 */
@@ -481,64 +484,82 @@ section {
   border-radius: 10px;
 }
 
-.icon-item:hover, .icon-item.active {
-  /* transform: scale(1.2); */
-  filter: drop-shadow(1px 1px 0 var(--accent-dark))
-}
-
-/* 手動配置 icon 位置（可以微調） */
 .icon-item:nth-child(1) {
-  top: 30%;
-  right: 100%;
   width: 28%;
-}
-.icon-item:nth-child(1):hover, 
-.icon-item:nth-child(1).active {
-  transform: scale(1.1) rotate(-3deg);
 }
 
 .icon-item:nth-child(2) {
-  top: 45%;
-  right: 90%;
   width: 45%;
-}
-.icon-item:nth-child(2):hover, 
-.icon-item:nth-child(2).active {
-  transform: scale(1.1) rotate(2deg);
 }
 
 .icon-item:nth-child(3) {
-  top: 25%;
-  left: 75%;
   width: 12%;
 }
-.icon-item:nth-child(3):hover, 
-.icon-item:nth-child(3).active {
-  transform: scale(1.1) rotate(-5deg);
-}
 
-.icon-item:nth-child(4) {
-  top: 50%;
-  left: 98%;
-}
-.icon-item:nth-child(4):hover, 
-.icon-item:nth-child(4).active {
-  transform: scale(1.1) rotate(5deg);
-}
+@media (min-width: 768px) {
 
-.icon-item:nth-child(5) {
-  top: 70%;
-  left: 85%;
-}
-.icon-item:nth-child(5):hover, 
-.icon-item:nth-child(5).active {
-  transform: scale(1.1) rotate(-3deg);
+  .icon-item:hover,
+  .icon-item.active {
+    /* transform: scale(1.2); */
+    filter: drop-shadow(1px 1px 0 var(--accent-dark))
+  }
+
+  /* 手動配置 icon 位置（可以微調） */
+  .icon-item:nth-child(1) {
+    top: 30%;
+    right: 100%;
+  }
+
+  .icon-item:nth-child(1):hover,
+  .icon-item:nth-child(1).active {
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  .icon-item:nth-child(2) {
+    top: 45%;
+    right: 90%;
+  }
+
+  .icon-item:nth-child(2):hover,
+  .icon-item:nth-child(2).active {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  .icon-item:nth-child(3) {
+    top: 25%;
+    left: 75%;
+  }
+
+  .icon-item:nth-child(3):hover,
+  .icon-item:nth-child(3).active {
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  .icon-item:nth-child(4) {
+    top: 50%;
+    left: 98%;
+  }
+
+  .icon-item:nth-child(4):hover,
+  .icon-item:nth-child(4).active {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .icon-item:nth-child(5) {
+    top: 70%;
+    left: 85%;
+  }
+
+  .icon-item:nth-child(5):hover,
+  .icon-item:nth-child(5).active {
+    transform: scale(1.1) rotate(-3deg);
+  }
 }
 
 /* --- Timeline --- */
 .timeline {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
@@ -600,38 +621,83 @@ section {
 /* tooltip above timeline */
 .timeline-tooltip {
   position: absolute;
-  bottom: 150%;
+  bottom: 180%;
   left: 50%;
   transform: translateX(-50%);
-  background: #fff8f3;
-  color: #5a4032;
-  font-size: 1.1rem;
+  background: var(--input-bg);
+  font-size: 1.2rem;
   padding: 6px 12px;
   border-radius: 10px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
   white-space: nowrap;
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;
 }
 
-/* About的 title */
-.about-top h1 {
-  white-space: nowrap;
-}
+@media (max-width: 768px) {
+  .about-container {
+    padding: 3rem 0 12rem;
+  }
 
-.lang-zh .about-top h1 {
-  font-family: 'BoutiqueBitmap9x9';
-}
+  .icon-item {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease;
+    z-index: 10;
+  }
 
-/* About的 description */
-.about-top h3 {
-  max-width: 290px;
-  text-align: justify;
+  /* 浮現時動畫 */
+  .icon-item.visible {
+    opacity: 1;
+    transform: scale(0.9);
+    filter: drop-shadow(1px 1px 0 var(--accent-dark))
+  }
+
+  /* 可以自由調整每個 icon 的位置 */
+  .icon-item:nth-child(1) {
+    top: 15%;
+    left: 10%;
+    transform: rotate(-3deg);
+  }
+
+  .icon-item:nth-child(2) {
+    top: 15%;
+    right: 10%;
+    transform: rotate(2deg);
+  }
+
+  .icon-item:nth-child(3) {
+    top: 20%;
+    left: 15%;
+    transform: rotate(4deg);
+  }
+
+  .icon-item:nth-child(4) {
+    top: 25%;
+    left: 67%;
+    transform: rotate(-3deg);
+  }
+
+  .icon-item:nth-child(5) {
+    top: 25%;
+    left: 10%;
+    transform: rotate(-3deg);
+  }
+
+  /* Timeline 縮短 */
+  .timeline {
+    width: 90%;
+    bottom: 10px;
+  }
+
+  .timeline-years {
+    font-size: 1.2rem;
+  }
 }
 
 .cta-button {
-  margin-top: 1rem;
+  margin-top: 2rem;
   padding: 1rem 2rem;
   background-color: var(--accent-dark);
   border: 2px solid var(--primary);
@@ -1165,13 +1231,6 @@ footer p {
   /* 調整nav中toggles的間距 */
   .nav-tail {
     gap: 1rem;
-  }
-
-  /* 調整about */
-  .about-top {
-    flex-direction: column;
-    gap: 0rem;
-    margin: -2rem 2rem 2rem;
   }
 
   /* service調整為column排版＋gap a bit */

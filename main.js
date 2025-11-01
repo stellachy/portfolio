@@ -251,27 +251,30 @@ const timelineData = [
 
 let currentProgress = 0;
 
-milestones.forEach((item, index) => {
-  item.addEventListener('mouseenter', () => {
-    const data = timelineData[index];
-    // 延伸線條
-    progress.style.width = `${data.endPercent}%`;
-    currentProgress = data.endPercent;
+// 僅laptop時，啟用 hover effects
+if (window.innerWidth >= 768) {
+  milestones.forEach((item, index) => {
+    item.addEventListener('mouseenter', () => {
+      const data = timelineData[index];
+      // 延伸線條
+      progress.style.width = `${data.endPercent}%`;
+      currentProgress = data.endPercent;
 
-    // 啟用節點
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i <= index + 1);
+      // 啟用節點
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i <= index + 1);
+      });
+
+      // 顯示文字
+      tooltip.textContent = data.text;
+      tooltip.style.opacity = 1;
     });
 
-    // 顯示文字
-    tooltip.textContent = data.text;
-    tooltip.style.opacity = 1;
+    item.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = 0;
+    });
   });
-
-  item.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = 0;
-  });
-});
+}
 
 // ScrollTrigger 控制 timeline 進度
 gsap.registerPlugin(ScrollTrigger);
@@ -310,22 +313,36 @@ const tl = gsap.timeline({
       tooltip.textContent = data.text;
       tooltip.style.opacity = 1;
 
-      // 更新 icon scale（讓目前的 milestone 稍微放大）
-      milestones.forEach((item, i) => {
-        item.classList.toggle("active", i === stepIndex);
-      });
+      // 更新 icon effects
+      // 判斷螢幕寬度，切換不同動畫模式
+      if (window.innerWidth < 768) {
+        milestones.forEach((item, i) => {
+          item.classList.toggle("visible", i === stepIndex);  // 讓目前的 milestone 稍微放大並浮現出來
+        });
+      } else {
+        milestones.forEach((item, i) => {
+          item.classList.toggle("active", i === stepIndex);  // 讓目前的 milestone 稍微放大
+        });
+      }
+
     },
     onLeave: () => {
       progress.style.width = "0%";
       dots.forEach(dot => dot.classList.remove("active"));
       tooltip.style.opacity = 0;
-      milestones.forEach(item => item.classList.remove("active"));
+      milestones.forEach(item => {
+        item.classList.remove("active");
+        item.classList.remove("visible");
+      });
     },
     onLeaveBack: () => {
       progress.style.width = "0%";
       dots.forEach(dot => dot.classList.remove("active"));
       tooltip.style.opacity = 0;
-      milestones.forEach(item => item.classList.remove("active"));
+      milestones.forEach(item => {
+        item.classList.remove("active");
+        item.classList.remove("visible");
+      });
     }
   }
 });
