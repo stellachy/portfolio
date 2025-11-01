@@ -242,7 +242,7 @@ header {
   border-radius: 4px 14px 4px 4px;
   text-decoration: none;
   color: var(--font-color);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-in-out;
 }
 
 .nav-links li a:hover {
@@ -367,17 +367,252 @@ section {
   border-bottom: 2px solid var(--primary);
 }
 
-.avatar {
-  width: 200px;
-  margin-bottom: 1rem;
-}
-
-/* About的上方 */
-.about-top {
+.about-container {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  padding: 4rem 0 16rem;
+}
+
+.avatar {
+  width: 200px;
+  border-radius: 28%;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  perspective: 800px;
+  z-index: 1;
+}
+
+.sticker-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.sticker-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -8px; /* 控制邊框厚度 */
+  background: var(--accent-dark);
+  mask: url('assets/profile_nbg.png') no-repeat center / contain;
+  -webkit-mask: url('assets/profile_nbg.png') no-repeat center / contain;
+  z-index: -1;
+  border-radius: 32%;
+}
+
+.avatar-wrapper:hover .avatar {
+  transform: rotateX(-6deg) rotateY(-6deg) translateZ(20px);
+  border-radius: 24%;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); */
+}
+
+.avatar-wrapper:hover .sticker-wrap {
+  transform: rotateX(-6deg) rotateY(-10deg) translateZ(20px);
+}
+
+/* chat bubble */
+.chat-bubble {
+  position: absolute;
+  bottom: 110%; /* 出現在頭像上方 */
+  right: -10%;
+  background: var(--input-bg);
+  font-size: 1.3rem;
+  padding: 6px 10px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* chatbubble小尾巴 v */
+.chat-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--input-bg) transparent transparent transparent;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.15)); 
+}
+
+/* hover 時讓泡泡出現 */
+.avatar-wrapper:hover .chat-bubble {
+  opacity: 1;
+  transform: translateY(0);
+  transform: rotate(2deg);
+}
+
+.milestone-icons {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+}
+
+.icon-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.icon-item img {
+  width: 140%;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+}
+
+.icon-item:hover, .icon-item.active {
+  /* transform: scale(1.2); */
+  filter: drop-shadow(1px 1px 0 var(--accent-dark))
+}
+
+/* 手動配置 icon 位置（可以微調） */
+.icon-item:nth-child(1) {
+  top: 30%;
+  right: 100%;
+  width: 28%;
+}
+.icon-item:nth-child(1):hover, 
+.icon-item:nth-child(1).active {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.icon-item:nth-child(2) {
+  top: 45%;
+  right: 90%;
+  width: 45%;
+}
+.icon-item:nth-child(2):hover, 
+.icon-item:nth-child(2).active {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.icon-item:nth-child(3) {
+  top: 25%;
+  left: 75%;
+  width: 12%;
+}
+.icon-item:nth-child(3):hover, 
+.icon-item:nth-child(3).active {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.icon-item:nth-child(4) {
+  top: 50%;
+  left: 98%;
+}
+.icon-item:nth-child(4):hover, 
+.icon-item:nth-child(4).active {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.icon-item:nth-child(5) {
+  top: 70%;
+  left: 85%;
+}
+.icon-item:nth-child(5):hover, 
+.icon-item:nth-child(5).active {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* --- Timeline --- */
+.timeline {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  text-align: center;
+  z-index: 0;
+}
+
+.timeline-years {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-bar {
+  position: relative;
+  height: 6px;
+  background: var(--selection-bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--accent-dark);
+  width: 0;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+/* 節點 dots */
+.timeline-dots {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.dot {
+  width: 8px;
+  height: 5px;
+  background-color: var(--accent-medium);
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 2;
+}
+
+.dot.active {
+  background: var(--primary);
+  transform: scale(1.2);
+}
+
+/* tooltip above timeline */
+.timeline-tooltip {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff8f3;
+  color: #5a4032;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 /* About的 title */
@@ -976,49 +1211,14 @@ footer p {
   /* 微調手機版時，email過長換行問題 */
   .email-text {
     display: inline-block;
-    max-width: 160px; /* email寬度限制 */
+    max-width: 160px;
+    /* email寬度限制 */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     vertical-align: middle;
     padding-bottom: 3px;
   }
-}
-
-/* site */
-.site-wrapper {
-  padding: 1rem 3rem 0rem;
-  border-radius: 1.5rem;
-  /* box-shadow: 4px 4px 8px rgba(0,0,0,0.05); */
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-#site h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-#site ul {
-  list-style-type: none;
-  display: grid;
-  gap: 1rem;
-}
-
-#site li {
-  background-color: var(--input-bg);
-  border-left: 5px solid var(--accent-medium);
-  padding: 1rem;
-  border-radius: 0.75rem;
-  font-size: 1.4rem;
-  line-height: 1.5;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-#site li:hover {
-  transform: translateX(4px);
-  background-color: var(--selection-bg);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* projects */

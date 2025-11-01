@@ -39,6 +39,8 @@
       });
     })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -63,7 +65,6 @@
           <div class="logo">Stella</div>
           <ul class="nav-links">
             <li><a href="#about" data-i18n="nav.about">🙋🏻‍♀️ About</a></li>
-            <li><a href="#site" data-i18n="nav.site">👩🏻‍💻 Site</a></li>
             <li><a href="#projects" data-i18n="nav.projects">📜 Projects</a></li>
             <!-- <li><a href="#services" data-i18n="nav.services">🍗 Services</a></li> -->
             <li><a href="#skills" data-i18n="nav.skills">🔧 Skills</a></li>
@@ -87,30 +88,65 @@
     </header>
 
     <main>
-
       <section id="about">
-        <div class="about-top">
-          <img src="assets/profile_pic.png" alt="avatar" class="avatar">
+        <div class="about-container">
+          <!-- 中間：avatar photo -->
           <div>
-            <h1 data-i18n="about.title">Hi, I'm Stella!</h1>
-            <h3 data-i18n="about.description">I love creating cute, pixel-style websites!</h3>
+            <div class="avatar-wrapper">
+              <div class="sticker-wrap">
+                <img src="assets/profile_nbg.png" alt="avatar" class="avatar" />
+              </div>
+              <div class="chat-bubble">Hi, I'm Stella!</div>
+            </div>
+          </div>
+
+          <!-- 周圍：Milestone Icons -->
+          <div class="milestone-icons">
+            <div class="icon-item">
+              <img src="assets/chgsh_nbg.png" alt="經歷1" />
+            </div>
+            <div class="icon-item">
+              <img src="assets/ntnu_nbg.png" alt="經歷2" />
+            </div>
+            <div class="icon-item">
+              <img src="assets/hchs_nbg.png" alt="經歷3" />
+            </div>
+            <div class="icon-item">
+              <img src="assets/ispan_nbg.png" alt="經歷4" />
+            </div>
+            <div class="icon-item">
+              <img src="assets/t-ambassador_nbg.png" alt="經歷5" />
+            </div>
+          </div>
+
+          <!-- 時間軸 -->
+          <div class="timeline">
+            <div class="timeline-years">
+              <span>2016</span>
+              <span>2019</span>
+              <span>2023</span>
+              <span>2024</span>
+              <span>2025</span>
+              <span>現在</span>
+            </div>
+            <div class="timeline-bar">
+              <div class="timeline-progress"></div>
+              <!-- 節點 dots -->
+              <div class="timeline-dots">
+                <div class="dot" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+                <div class="dot" data-index="5"></div>
+              </div>
+            </div>
+            <div class="timeline-tooltip"></div>
           </div>
         </div>
-        <button class="cta-button"><a href="#contact" data-i18n="nav.contact">Contact ME</a></button>
-      </section>
-
-      <section id="site">
-        <div class="site-wrapper">
-          <h2 data-i18n="site.title">About This Site</h2>
-          <ul>
-            <li data-i18n="site.item1">📱 Fully responsive design</li>
-            <li data-i18n="site.item2">🌙 Dark mode toggle</li>
-            <li data-i18n="site.item3">🚧 Custom 404 page</li>
-            <li data-i18n="site.item4">✨ Animated loading screen</li>
-            <li data-i18n="site.item5">🌏 Bilingual support (EN/ZH)</li>
-            <li data-i18n="site.item6">🔍 SEO meta tags & Open Graph</li>
-          </ul>
-        </div>
+        <button class="cta-button">
+          <a href="#contact" data-i18n="nav.contact">Contact ME</a>
+        </button>
       </section>
 
       <section id="projects">
@@ -119,7 +155,8 @@
 
           <div class="project-item">
             <h3 data-i18n="projects.crochet.title">CrochetLand 🧶</h3>
-            <span data-i18n="projects.crochet.desc"><strong>Designed for small handmade business owners to showcase their work with cozy touch</strong></span>
+            <span data-i18n="projects.crochet.desc"><strong>Designed for small handmade business owners to showcase
+                their work with cozy touch</strong></span>
             <div class="img-wrapper">
               <img src="assets/crochet-preview.jpg" alt="CrochetLand site preview">
               <a href="https://crochet.stellachy.online" target="_blank" class="demo-btn"><i
@@ -138,7 +175,8 @@
 
           <div class="project-item">
             <h3 data-i18n="projects.picora.title">Picora 📸</h3>
-            <span data-i18n="projects.picora.desc"><strong>Designed for photographers with warm style to present their work</strong></span>
+            <span data-i18n="projects.picora.desc"><strong>Designed for photographers with warm style to present their
+                work</strong></span>
             <div class="img-wrapper">
               <img src="assets/picora-preview.jpg" alt="Picora site preview">
               <a href="https://picora.framer.website" target="_blank" class="demo-btn"><i

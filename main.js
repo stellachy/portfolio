@@ -213,7 +213,7 @@ window.addEventListener("load", () => {
 const backToTopBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
+  if (window.scrollY > 2700) {
     backToTopBtn.classList.remove('hidden');
   } else {
     backToTopBtn.classList.add('hidden');
@@ -233,4 +233,99 @@ document.querySelector('.close-btn').addEventListener('click', () => {
   setTimeout(() => {
     window.location.href = '404.html';
   }, 500); // 等動畫完成再導頁
+});
+
+// Timeline Control (Hover Effects)
+const milestones = document.querySelectorAll('.icon-item');
+const progress = document.querySelector('.timeline-progress');
+const dots = document.querySelectorAll('.dot');
+const tooltip = document.querySelector('.timeline-tooltip');
+
+const timelineData = [
+  { endPercent: 20, text: "高中｜彰化女中 普通科" },
+  { endPercent: 40, text: "大學｜臺灣師範大學 英語學系" },
+  { endPercent: 60, text: "2024.2-7｜新竹高中 英語科代理教師" },
+  { endPercent: 80, text: "2024.8-2025.1｜資展國際 網頁全端開發班進修" },
+  { endPercent: 100, text: "2025.9-迄今｜T大使計劃 學習AI應用與專案開發" },
+];
+
+let currentProgress = 0;
+
+milestones.forEach((item, index) => {
+  item.addEventListener('mouseenter', () => {
+    const data = timelineData[index];
+    // 延伸線條
+    progress.style.width = `${data.endPercent}%`;
+    currentProgress = data.endPercent;
+
+    // 啟用節點
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i <= index + 1);
+    });
+
+    // 顯示文字
+    tooltip.textContent = data.text;
+    tooltip.style.opacity = 1;
+  });
+
+  item.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = 0;
+  });
+});
+
+// ScrollTrigger 控制 timeline 進度
+gsap.registerPlugin(ScrollTrigger);
+
+// 設定
+const totalSteps = timelineData.length;
+const section = document.querySelector(".border-container");
+
+// 建立主時間軸
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: section,
+    start: "top top",         // 區塊到畫面頂端開始
+    end: "+=" + (totalSteps * 500), // 區塊滾動長度
+    scrub: true,             // 不連續跟隨
+    pin: true,                // 固定該區塊
+    snap: {
+      snapTo: (value) => Math.round(value * totalSteps) / totalSteps, // 每格吸附
+      duration: 0.3,
+      ease: "power1.inOut"
+    },
+    onUpdate: (self) => {
+      const stepIndex = Math.floor(self.progress * totalSteps);
+      const data = timelineData[stepIndex] || timelineData[totalSteps - 1];
+
+      // 更新進度條
+      progress.style.width = `${data.endPercent}%`;
+      currentProgress = data.endPercent;
+
+      // 更新節點
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i <= stepIndex + 1);
+      });
+
+      // 更新 tooltip
+      tooltip.textContent = data.text;
+      tooltip.style.opacity = 1;
+
+      // 更新 icon scale（讓目前的 milestone 稍微放大）
+      milestones.forEach((item, i) => {
+        item.classList.toggle("active", i === stepIndex);
+      });
+    },
+    onLeave: () => {
+      progress.style.width = "0%";
+      dots.forEach(dot => dot.classList.remove("active"));
+      tooltip.style.opacity = 0;
+      milestones.forEach(item => item.classList.remove("active"));
+    },
+    onLeaveBack: () => {
+      progress.style.width = "0%";
+      dots.forEach(dot => dot.classList.remove("active"));
+      tooltip.style.opacity = 0;
+      milestones.forEach(item => item.classList.remove("active"));
+    }
+  }
 });

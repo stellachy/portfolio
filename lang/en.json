@@ -33,15 +33,6 @@
     "message": "Maintaining...",
     "back": "Back"
   },
-  "site": {
-    "title": "About This Site",
-    "item1": "📱 Fully responsive design",
-    "item2": "🌙 Dark mode toggle",
-    "item3": "🚧 Custom 404 page",
-    "item4": "✨ Animated loading screen",
-    "item5": "🌏 Bilingual support (EN/ZH)",
-    "item6": "🔍 SEO meta tags & Open Graph"
-  },
   "projects": {
     "title": "Projects",
     "crochet": {
