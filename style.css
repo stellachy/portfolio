@@ -1077,7 +1077,7 @@ footer p {
 /* 🌀 Loader */
 .loader-wrapper {
   position: fixed;
-  inset: 0;
+  inset:0;
   /* 相當於 top: 0; right: 0; bottom: 0; left: 0; 撐滿整個畫面 */
   background-color: var(--background);
   display: flex;
@@ -1085,6 +1085,10 @@ footer p {
   justify-content: center;
   z-index: 1000;
   transition: opacity 0.8s ease, visibility 0.8s ease;
+
+  /* 調整手機畫面時，寬度問題影響到loader消失 */
+  width: 100vw; /* 撐滿螢幕寬 */
+  height: 100vh; /* 撐滿螢幕高 */
 }
 
 .loader-wrapper.fade-out {

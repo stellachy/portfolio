@@ -282,7 +282,7 @@ gsap.registerPlugin(ScrollTrigger);
 // 設定
 const totalSteps = timelineData.length;
 const section = window.innerWidth < 768 ? document.querySelector("body") : document.querySelector(".border-container");
-console.log(section);
+
 // 建立主時間軸
 const tl = gsap.timeline({
   scrollTrigger: {
