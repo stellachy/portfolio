@@ -281,8 +281,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // 設定
 const totalSteps = timelineData.length;
-const section = document.querySelector(".border-container");
-
+const section = window.innerWidth < 768 ? document.querySelector("body") : document.querySelector(".border-container");
+console.log(section);
 // 建立主時間軸
 const tl = gsap.timeline({
   scrollTrigger: {
@@ -293,7 +293,7 @@ const tl = gsap.timeline({
     pin: true,                // 固定該區塊
     snap: {
       snapTo: (value) => Math.round(value * totalSteps) / totalSteps, // 每格吸附
-      duration: 0.3,
+      duration: 0.4,
       ease: "power1.inOut"
     },
     onUpdate: (self) => {
