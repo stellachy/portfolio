@@ -292,8 +292,9 @@ const tl = gsap.timeline({
     trigger: section,
     start: "top top",         // 區塊到畫面頂端開始
     end: "+=" + (totalSteps * scrollDistance), // 區塊滾動長度
-    scrub: true,             // 不連續跟隨
+    scrub: true,              // 不連續跟隨
     pin: true,                // 固定該區塊
+    anticipatePin: 1,
     snap: {
       snapTo: (value) => Math.round(value * totalSteps) / totalSteps, // 每格吸附
       duration: 0.4,
