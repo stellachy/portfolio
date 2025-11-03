@@ -213,7 +213,7 @@ window.addEventListener("load", () => {
 const backToTopBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
-  const scrollToTopDistance = window.innerWidth < 768 ? 2000 : 2700;
+  const scrollToTopDistance = window.innerWidth < 768 ? 1800 : 2700;
 
   if (window.scrollY > scrollToTopDistance) {
     backToTopBtn.classList.remove('hidden');
@@ -284,7 +284,7 @@ gsap.registerPlugin(ScrollTrigger);
 // 設定
 const totalSteps = timelineData.length;
 const section = window.innerWidth < 768 ? document.querySelector("body") : document.querySelector(".border-container");
-const scrollDistance = window.innerWidth < 768 ? 350 : 500;
+const scrollDistance = window.innerWidth < 768 ? 300 : 500;
 
 // 建立主時間軸
 const tl = gsap.timeline({
