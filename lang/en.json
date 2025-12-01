@@ -35,6 +35,16 @@
   },
   "projects": {
     "title": "Projects",
+    "tarot": {
+      "title": "Cozy Tarot 🔮",
+      "desc": "A lil web app for drawing tarot cards and getting AI readings",
+      "item1": "Smooth flow from drawing cards to receiving AI readings",
+      "item2": "Connected to AI API for instant tarot readings",
+      "item3": "Card drawing logic and dialog UI components implemented",
+      "item4": "State managed with React useState and useEffect hooks",
+      "item5": "Limited to one AI reading per day per user",
+      "item6": "More updates coming soon – additional spreads planned!"
+    },
     "crochet": {
       "title": "Crochet Land 🧶",
       "desc": "Designed for small handmade business owners to showcase their work with cozy touch",

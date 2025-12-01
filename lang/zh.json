@@ -35,6 +35,16 @@
   },
   "projects": {
     "title": "作品展示",
+    "tarot": {
+      "title": "Cozy Tarot 🔮",
+      "desc": "一個可以抽塔羅牌並獲得 AI 解讀的小型網頁應用",
+      "item1": "從抽牌到 AI 解讀的流程流暢自然",
+      "item2": "串接 AI API 即時獲得塔羅解讀",
+      "item3": "實作抽牌邏輯與對話框 UI 元件",
+      "item4": "使用 React useState 與 useEffect 管理狀態",
+      "item5": "每位使用者每日限制一次 AI 解讀",
+      "item6": "更多更新即將推出 – 將加入其他占卜牌陣！"
+    },
     "crochet": {
       "title": "Crochet Land 🧶",
       "desc": "為手作小商家打造的溫馨線上作品展示",
